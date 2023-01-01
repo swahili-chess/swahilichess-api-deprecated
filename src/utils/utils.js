@@ -14,7 +14,7 @@ export default async function getTopTenHelper() {
   const userObj = await response.json();
   for (let user of userObj) {
     summary["rapid"][user["id"]] = user["perfs"]["rapid"]["rating"];
-    summary["blitz"][user["id"]] = user["perfs"]["rapid"]["rating"];
+    summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
   }
   //return summary;
   const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
