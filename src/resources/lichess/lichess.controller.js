@@ -1,3 +1,10 @@
-export const getTopFiveRapid = async (req, res) => {}
+import getTopTenHelper from "../../utils/utils.js"
 
-export const getTopFiveBlitz = async (req, res) => {}
+export const getTopTen = async (req, res) => {
+    
+    const response= await getTopTenHelper()
+    res.status(200).json(response)
+}
+
+
+
