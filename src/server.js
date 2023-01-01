@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 
 
 
-app.use("/api/lichess",lichessRouter);
+app.use("/lichess",lichessRouter);
 
 
 
@@ -25,7 +25,7 @@ export const start = async () => {
   try {
 
     app.listen(config.port, () => {
-      console.log(`REST API on http://localhost:${config.port}/api`);
+      console.log(`REST API on http://localhost:${config.port}`);
     });
   } catch (e) {
     console.log(e);
