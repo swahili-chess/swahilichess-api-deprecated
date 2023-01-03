@@ -12,18 +12,19 @@ export default async function getTopTenHelper() {
     headers: { "Content-Type": "text/plain" },
   });
   const userObj = await response.json();
-  for (let user of userObj) {
-    summary["rapid"][user["id"]] = user["perfs"]["rapid"]["rating"];
-    summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
-  }
-  //return summary;
-  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
-  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 10);
+  // for (let user of userObj) {
+  //   summary["rapid"][user["id"]] = user["perfs"]["rapid"]["rating"];
+  //   summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
+  // }
+  // //return summary;
+  // const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
+  // const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 10);
 
-  summary["rapid"] = sortedSlicedRapid;
-  summary["blitz"] = sortedSlicedBlitz;
+  // summary["rapid"] = sortedSlicedRapid;
+  // summary["blitz"] = sortedSlicedBlitz;
 
-  return summary;
+  // return summary;
+  return userObj;
 }
 
 function sliceDict(dict, start, end) {
