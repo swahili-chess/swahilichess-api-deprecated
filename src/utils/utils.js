@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 const summary = { rapid: {}, blitz: {} };
 
 const text =
-  "Kafiti,dinokapon26,musir6363,GN02,BiGFiVeWin05,onesmo,Hopertz,arnie_N,Kazremy,alphazzz3r0,k_daxh,Farajahchallo,Andre_Beatz,Briodee,ClusteredFib3r,MABESSA,somrandomguy,Diya255,basiiccsss";
+  "Kafiti,dinokapon26,musir6363,GN02,BiGFiVeWin05,onesmo,Hopertz,arnie_N,Kazremy,alphazzz3r0,k_daxh,Farajahchallo,Andre_Beatz,Briodee,ClusteredFib3r,somrandomguy,Diya255,basiiccsss";
 
 export default async function getTopTenHelper() {
   const response = await fetch("https://lichess.org/api/users", {
@@ -12,19 +12,18 @@ export default async function getTopTenHelper() {
     headers: { "Content-Type": "text/plain" },
   });
   const userObj = await response.json();
-  // for (let user of userObj) {
-  //   summary["rapid"][user["id"]] = user["perfs"]["rapid"]["rating"];
-  //   summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
-  // }
-  // //return summary;
-  // const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
-  // const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 10);
+  for (let user of userObj) {
+    summary["rapid"][user["id"]] = user["perfs"]["rapid"]["rating"];
+    summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
+  }
 
-  // summary["rapid"] = sortedSlicedRapid;
-  // summary["blitz"] = sortedSlicedBlitz;
+  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
+  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 10);
 
-  // return summary;
-  return userObj;
+  summary["rapid"] = sortedSlicedRapid;
+  summary["blitz"] = sortedSlicedBlitz;
+
+  return summary;
 }
 
 function sliceDict(dict, start, end) {
