@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 const summary = { rapid: {}, blitz: {} };
 
 const text =
-  "Kafiti,dinokapon26,musir6363,GN02,BiGFiVeWin05,onesmo,Hopertz,arnie_N,Kazremy,alphazzz3r0,k_daxh,Farajahchallo,Andre_Beatz,Briodee,ClusteredFib3r,somrandomguy,Diya255,basiiccsss";
+  "Kafiti,dinokapon26,musir6363,GN02,BiGFiVeWin05,onesmo,Hopertz,arnie_N,Kazremy,alphazzz3r0,k_daxh34,Farajahchallo,Andre_Beatz,Briodee,ClusteredFib3r,somrandomguy,Diya255,basiiccsss";
 
 export default async function getTopTenHelper() {
   const response = await fetch("https://lichess.org/api/users", {
