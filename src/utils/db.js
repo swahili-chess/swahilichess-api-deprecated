@@ -14,7 +14,7 @@ const sql = postgres({
 export default async function getUserNames() {
   const users = await sql`
     select
-    name
+    lichess_id
     from lichess
   `
   return users
