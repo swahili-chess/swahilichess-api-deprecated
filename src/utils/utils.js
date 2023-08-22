@@ -1,14 +1,10 @@
 import fetch from "node-fetch";
-
 const summary = { rapid: {}, blitz: {} };
 
-const text =
-  "Kafiti,dinokapon26,musir6363,harold89,Mzee_Kimaro,GN02,BiGFiVeWin05,sugunyo,onesmo,Hopertz,arnie_N,Kazremy,alphazzz3r0,kdaxh,Farajahchallo,Andre_Beatz,Briodee,ClusteredFib3r,somrandomguy,Diya255,basiiccsss";
-
-export default async function getTopTenHelper() {
+export default async function getTopTenHelper(usernames) {
   const response = await fetch("https://lichess.org/api/users", {
     method: "post",
-    body: text,
+    body: usernames,
     headers: { "Content-Type": "text/plain" },
   });
   const userObj = await response.json();
