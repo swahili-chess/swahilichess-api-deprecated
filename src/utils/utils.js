@@ -18,8 +18,8 @@ export default async function getTopTenHelper(usernames) {
     summary["blitz"][user["id"]] = user["perfs"]["blitz"]["rating"];
   }
 
-  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 10);
-  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 10);
+  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 20);
+  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 20);
 
   summary["rapid"] = sortedSlicedRapid;
   summary["blitz"] = sortedSlicedBlitz;
