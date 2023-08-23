@@ -18,8 +18,8 @@ export default async function getTopTenHelper(lichess_ids) {
     summary["blitz"][user["username"]] = user["perfs"]["blitz"]["rating"];
   }
 
-  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 20);
-  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 20);
+  const sortedSlicedRapid = sliceDict(sortDictByValue(summary["rapid"]), 0, 30);
+  const sortedSlicedBlitz = sliceDict(sortDictByValue(summary["blitz"]), 0, 30);
 
   summary["rapid"] = sortedSlicedRapid;
   summary["blitz"] = sortedSlicedBlitz;
