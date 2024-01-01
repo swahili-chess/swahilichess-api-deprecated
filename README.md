@@ -1,2 +1,2 @@
-# chesswahili-api
-### Api thats powers [chesswahili.com](https://chesswahili.com)
+# swahilichess-api
+### Api thats powers [swahilichess.com](https://swahilichess.com)
