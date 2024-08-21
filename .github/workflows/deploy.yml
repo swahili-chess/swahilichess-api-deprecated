@@ -15,7 +15,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "*"
-        target: "/home/${{ secrets.USERNAME }}/chesswahili-api"
+        target: "/home/${{ secrets.USERNAME }}/chess/swahilichess-api"
     - name: Install Dependencies 
       uses: appleboy/ssh-action@master
       with:
@@ -24,8 +24,8 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-            cd /home/${{ secrets.USERNAME }}/chesswahili-api
-            echo ${{ secrets.PASSWORD }} | sudo -S systemctl stop chesswahili-api.service 
+            cd /home/${{ secrets.USERNAME }}/chess/swahilichess-api
+            echo ${{ secrets.PASSWORD }} | sudo -S systemctl stop swahilichess-api.service 
             npm install
-            echo ${{ secrets.PASSWORD }} | sudo -S systemctl start chesswahili-api.service 
+            echo ${{ secrets.PASSWORD }} | sudo -S systemctl start swahilichess-api.service 
             echo ${{ secrets.PASSWORD }} | sudo -S systemctl reload nginx
